@@ -6,15 +6,12 @@ module.exports = {
   entry: {
     app: './app.js'
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'commons',
-      filename: 'commons.js',
-      minChunks: 2,
-    }),
-  ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, './dist/assets'),
+    publicPath: '/assets'
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './src')
   }
 };
